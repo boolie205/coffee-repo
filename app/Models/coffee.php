@@ -21,12 +21,7 @@ class coffee extends Model
 
     static public function AddCoffeeAndOptions($options){
         $coffee = new coffee();
-        //Build array of options 
-        //ideally this should be dynamic, and take in custom options by taking an array and iterating through the options
-        //request function is nice enough to handle basic error checking for us. All we care about in this instance is that they are set.
-        // !! for a cheeky 'type cast' to boolean
-         $coffee->CoffeeOptions = $options;
-         //I should make this a helper function rather than reusing.
+        $coffee->CoffeeOptions = $options;
         $coffee->name_of_coffee = request('coffee_name');
         $coffee->save();
     }
